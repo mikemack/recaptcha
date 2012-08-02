@@ -95,7 +95,7 @@ class RecaptchaHelper extends AppHelper {
 			return $this->View->element($element, $elementOptions);
 		}
 
-		$jsonOptions = preg_replace('/"callback":"([^"\r\n]*)"/','"callback":$1',json_encode($recaptchaOptions));
+		$jsonOptions = preg_replace('/callback:([^"\r\n]*)/','callback:$1',json_encode($recaptchaOptions));
 		unset($recaptchaOptions);
 
 		if (empty($this->params['isAjax'])) {
